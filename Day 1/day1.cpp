@@ -39,7 +39,7 @@ vector<int> solution()
 				totalCaloriesPerElv.push_back(currentElvCalories);
 				currentElvCalories = 0;										//Reset currentElvCalories
 				continue;													
-        	}
+			}
 			currentElvCalories += currentCalories;							//if atoi succeeds add that line from file to currentElvCalories
 		}
 
