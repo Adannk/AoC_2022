@@ -1,40 +1,55 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <bits/stdc++.h>
 
 using namespace std;
-vector<int> readFromFile();
-void part1_solution(vector <int>);
-void part2_solution(vector <int>);
+vector<int> solution();
 
 int main()
 {
-    vector<int> sonarM = readFromFile();
-    
-    
+    vector<int> totalCaloriesPerElv = solution();
+
+	sort(totalCaloriesPerElv.begin(), totalCaloriesPerElv.end(), greater<int>());
+
+	int topThreeElvs = totalCaloriesPerElv[0] + totalCaloriesPerElv[1] + totalCaloriesPerElv[2];
 	
-    
+	cout << totalCaloriesPerElv[0] << endl;
+    cout << topThreeElvs;
     
     return 0;
 }
 
-vector<int> readFromFile()
+vector<int> solution()
 {
-    vector <int> subMoving;
-    ifstream readFromFile;
-    string line;
-    readFromFile.open("Input/input.txt",ios::in);
-	if (readFromFile.is_open())
+	vector<int> totalCaloriesPerElv;
+    int currentElvCalories = 0;
+    ifstream InputFile;
+
+	string line;
+    InputFile.open("Input/input.txt",ios::in);
+	if (InputFile.is_open())
 	{
-		while (getline(readFromFile,line))
+		while (getline(InputFile,line))
 		{
-			subMoving.push_back(stoi(line));
+			int currentCalories = atoi(line.c_str());
+
+			if (currentCalories == 0) 										//if atoi fails and fins \n add currentElvCalories to vector of total Calories per Elv
+			{																
+				totalCaloriesPerElv.push_back(currentElvCalories);
+				currentElvCalories = 0;										//Reset currentElvCalories
+				continue;													
+        	}
+			currentElvCalories += currentCalories;							//if atoi succeeds add that line from file to currentElvCalories
 		}
-		readFromFile.close();
+
+		InputFile.close();													//Close file after loading our list
 	}
+
 	else
 	{
 		cout << "Error reading file";
 	}
-    return subMoving;
+
+    return totalCaloriesPerElv;												//Return list
 }
