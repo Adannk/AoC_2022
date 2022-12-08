@@ -10,47 +10,55 @@ int main()
 {
     
     int firstPart = solution1();
-    int secondPart = solution2();
+    //int secondPart = solution2();
     cout << "Part 1: " << firstPart << endl;
-    cout << "Part 2: " << secondPart << endl;
+    //cout << "Part 2: " << secondPart << endl;
     
     
     return 0;
 }
+
 int solution1() 
 {
+    int i;
+    int x;
     int solutionPart1 = 0;
     ifstream InputFile;
+    string elfRucksack;
     InputFile.open("Input/input.txt",ios::in);
-    string line;
-
+    
     if(InputFile.is_open()) 
     {
-        while(getline(InputFile,line)) 
+        while(getline(InputFile,elfRucksack)) 
         {
-            int i = 0;
-            int x = 0;
-            string firstLineFromTxtFile = line.c_str();
-            if(firstLineFromTxtFile == "")
+            //If the string is empty skip this while itteration
+            if(elfRucksack == "")  
             {
                 continue;
             }
-            int fullStringSize = firstLineFromTxtFile.size();
-            string firstSubString = firstLineFromTxtFile.substr(0, fullStringSize / 2);
-            string secondSubString = firstLineFromTxtFile.substr(fullStringSize / 2, fullStringSize);
+
+            int fullStrLgth = elfRucksack.size();
+            string firstCompartment = elfRucksack.substr(0, fullStrLgth / 2);
+            string secondCompartment = elfRucksack.substr(fullStrLgth / 2, fullStrLgth);
             
-            for (int i = 0; i <= fullStringSize / 2; i++) 
+            //Loop threw both strings
+            for (int i = 0; i <= fullStrLgth / 2; i++) 
             {
-                for(int x = 0; x <= fullStringSize / 2; x++)
+                for(int x = 0; x <= fullStrLgth / 2; x++)
                 {
-                    if(firstSubString[i] == secondSubString[x])
+                    //If you find a matching char add the "score" to solutionPart1
+                    if(firstCompartment[i] == secondCompartment[x])
                     {
-                        if(firstSubString[i] < 'a')
-                            solutionPart1 += firstSubString[i] - 'A' + 27;
+                        //If char is lesser then 'a' its a uppercase char
+                        if(firstCompartment[i] < 'a')
+                            //A-Z represents the score of 27-52
+                            solutionPart1 += firstCompartment[i] - 'A' + 27;
+                        //if its not lesser then 'a' its a lowercase char
                         else
-                            solutionPart1 += firstSubString[i] - 'a' + 1;
-                        i = fullStringSize / 2;
-                        x = fullStringSize / 2;
+                            // represents the score of 27-52
+                            solutionPart1 += firstCompartment[i] - 'a' + 1;
+                        i = fullStrLgth / 2;
+                        x = fullStrLgth / 2;
                     }
                 }
                 
