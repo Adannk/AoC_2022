@@ -40,3 +40,5 @@
 .vscode/settings.json
 
 .vscode/tasks.json
+
+*.png
