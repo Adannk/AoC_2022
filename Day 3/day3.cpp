@@ -55,7 +55,7 @@ int solution1()
                             solutionPart1 += firstCompartment[i] - 'A' + 27;
                         //if its not lesser then 'a' its a lowercase char
                         else
-                            // represents the score of 27-52
+                            //a-z represents the score of 1-26
                             solutionPart1 += firstCompartment[i] - 'a' + 1;
                         i = fullStrLgth / 2;
                         x = fullStrLgth / 2;
