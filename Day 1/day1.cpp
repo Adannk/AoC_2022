@@ -9,7 +9,7 @@ vector<int> solution();
 int main()
 {
     vector<int> totalCaloriesPerElf = solution();
-
+	
 	sort(totalCaloriesPerElf.begin(), totalCaloriesPerElf.end(), greater<int>());
 
 	int topThreeElfs = totalCaloriesPerElf[0] + totalCaloriesPerElf[1] + totalCaloriesPerElf[2];
@@ -37,11 +37,9 @@ vector<int> solution()
 			//if atoi find empy line
 			if (currentCalories == 0) 										
 			{
-				//add currentElfCalories to vector of total Calories per Elf					
+				//add currentElfCalories to vector of total Calories per Elf Reset currentElfCalories
 				totalCaloriesPerElf.push_back(currentElfCalories);
-				//Reset currentElfCalories and jumps to next while iteration
-				currentElfCalories = 0;
-				continue;													
+				currentElfCalories = 0;										
 			}
 			//if atoi is number
 			else
