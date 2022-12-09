@@ -40,12 +40,11 @@ int solution1()
             string firstCompartment = elfRucksack.substr(0, fullStrLgth / 2);
             string secondCompartment = elfRucksack.substr(fullStrLgth / 2, fullStrLgth);
             
-            //Loop threw both strings char by char
+            //Loop thru both strings char by char to find a matching pair
             for (int i = 0; i <= fullStrLgth / 2; i++) 
             {
                 for(int x = 0; x <= fullStrLgth / 2; x++)
                 {
-                    //If you find a matching char add the "score" to solutionPart1
                     if(firstCompartment[i] == secondCompartment[x])
                     {
                         //If char is less than 'a' its a uppercase char
