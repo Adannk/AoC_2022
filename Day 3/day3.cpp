@@ -29,7 +29,7 @@ int solution1()
     {
         while(getline(InputFile,elfRucksack)) 
         {
-            //If the string is empty skip this while itteration
+            //If the string is empty jump to next while iteration
             if(elfRucksack == "")  
             {
                 continue;

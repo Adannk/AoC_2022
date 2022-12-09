@@ -36,18 +36,18 @@ int solution1() {
                 continue;
             
             if(c == 'A')
-                opponentsHand = ROCK;         //Rock
+                opponentsHand = ROCK;
             if(c == 'B')
-                opponentsHand = PAPER;         //Paper
+                opponentsHand = PAPER;
             if(c == 'C')
-                opponentsHand = SCISSORS;         //Scissors
+                opponentsHand = SCISSORS;
 
             if(c == 'X')
-                myHand = ROCK;         //Rock
+                myHand = ROCK;
             if(c == 'Y')
-                myHand = PAPER;         //Paper
+                myHand = PAPER;
             if(c == 'Z')
-                myHand = SCISSORS;         //Scissors
+                myHand = SCISSORS;
 
             
             
@@ -147,18 +147,18 @@ int solution2() {
                 continue;
             
             if(c == 'A')
-                opponentsHand = ROCK;         //Rock
+                opponentsHand = ROCK;
             if(c == 'B')
-                opponentsHand = PAPER;         //Paper
+                opponentsHand = PAPER;
             if(c == 'C')
-                opponentsHand = SCISSORS;         //Scissors
+                opponentsHand = SCISSORS;
 
             if(c == 'X')
-                myHand = ROCK;         //Rock
+                myHand = ROCK;
             if(c == 'Y')
-                myHand = PAPER;         //Paper
+                myHand = PAPER;
             if(c == 'Z')
-                myHand = SCISSORS;         //Scissors
+                myHand = SCISSORS;
 
             
             
@@ -250,6 +250,7 @@ int solution2() {
         }
     }
 
+    
     if(!InputFile.eof() && InputFile.fail())
         cout << "error reading file" << endl;
 
