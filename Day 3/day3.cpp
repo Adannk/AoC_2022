@@ -8,12 +8,10 @@ int solution2();
 
 int main()
 {
-    
     int firstPart = solution1();
     //int secondPart = solution2();
     cout << "Part 1: " << firstPart << endl;
     //cout << "Part 2: " << secondPart << endl;
-    
     
     return 0;
 }
@@ -38,10 +36,11 @@ int solution1()
             }
 
             int fullStrLgth = elfRucksack.size();
+            //Split up the two strings into their own variables
             string firstCompartment = elfRucksack.substr(0, fullStrLgth / 2);
             string secondCompartment = elfRucksack.substr(fullStrLgth / 2, fullStrLgth);
             
-            //Loop threw both strings
+            //Loop threw both strings char by char
             for (int i = 0; i <= fullStrLgth / 2; i++) 
             {
                 for(int x = 0; x <= fullStrLgth / 2; x++)
@@ -49,14 +48,15 @@ int solution1()
                     //If you find a matching char add the "score" to solutionPart1
                     if(firstCompartment[i] == secondCompartment[x])
                     {
-                        //If char is lesser then 'a' its a uppercase char
+                        //If char is less than 'a' its a uppercase char
                         if(firstCompartment[i] < 'a')
                             //A-Z represents the score of 27-52
                             solutionPart1 += firstCompartment[i] - 'A' + 27;
-                        //if its not lesser then 'a' its a lowercase char
+                        //if char is not less than 'a' its a lowercase char
                         else
                             //a-z represents the score of 1-26
                             solutionPart1 += firstCompartment[i] - 'a' + 1;
+                        //Exit both for loops
                         i = fullStrLgth / 2;
                         x = fullStrLgth / 2;
                     }
@@ -64,6 +64,7 @@ int solution1()
                 
             }
         }
+        //Close file and return the awnser to our problem :)
         InputFile.close();
         return solutionPart1;
     }
