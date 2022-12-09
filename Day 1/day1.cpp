@@ -37,7 +37,7 @@ vector<int> solution()
 			//if atoi find empy line
 			if (currentCalories == 0) 										
 			{
-				//add currentElfCalories to vector of total Calories per Elf Reset currentElfCalories
+				//add currentElfCalories to totalCaloriesPerElf and Resets currentElfCalories
 				totalCaloriesPerElf.push_back(currentElfCalories);
 				currentElfCalories = 0;										
 			}
