@@ -105,5 +105,9 @@ int solution2()
             }
         }
     }
+
+    else
+        cout << "Error reading file" << endl;
+    
     return solutionPart2;
 }
