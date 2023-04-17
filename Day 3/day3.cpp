@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <string>
 
 using namespace std;
 int solution1();
@@ -9,17 +10,15 @@ int solution2();
 int main()
 {
     int firstPart = solution1();
-    //int secondPart = solution2();
+    int secondPart = solution2();
     cout << "Part 1: " << firstPart << endl;
-    //cout << "Part 2: " << secondPart << endl;
+    cout << "Part 2: " << secondPart << endl;
     
     return 0;
 }
 
 int solution1() 
 {
-    int i;
-    int x;
     int solutionPart1 = 0;
     ifstream InputFile;
     string elfRucksack;
@@ -29,12 +28,6 @@ int solution1()
     {
         while(getline(InputFile,elfRucksack)) 
         {
-            //If the string is empty jump to next while iteration
-            if(elfRucksack == "")  
-            {
-                continue;
-            }
-
             int fullStrLgth = elfRucksack.size();
             //Split up the two strings into their own variables
             string firstCompartment = elfRucksack.substr(0, fullStrLgth / 2);
@@ -77,9 +70,40 @@ int solution2()
 {
     int solutionPart2 = 0;
     ifstream InputFile;
+    string firstRow;
+    string secondRow;
+    string thridRow;
     InputFile.open("Input/input.txt",ios::in);
-    string line;
-    InputFile.close();
-    
+    if(InputFile.is_open())
+    {
+        while (std::getline(InputFile, firstRow) && std::getline(InputFile, secondRow) && std::getline(InputFile, thridRow))
+        {
+            for (int i = 0; i <= firstRow.size(); i++) 
+            {
+                for(int x = 0; x <= secondRow.size(); x++)
+                {
+                    for(int y = 0; y <= thridRow.size(); y++)
+                    {
+                        //cout << firstRow[i] << " " << secondRow[x] << " " << thridRow[y] << endl;
+                        if((firstRow[i] == secondRow[x]) && (secondRow[x] == thridRow[y]))
+                        {
+                            //If char is less than 'a' its a uppercase char
+                            if(firstRow.at(i) < 'a')
+                                //A-Z represents the score of 27-52
+                                solutionPart2 += firstRow.at(i) - 'A' + 27;
+                            //if char is not less than 'a' its a lowercase char
+                            else
+                                //a-z represents the score of 1-26
+                                solutionPart2 += firstRow.at(i) - 'a' + 1;
+                            //If you find the common char exit all 3 for loops
+                            i = firstRow.size();
+                            x = secondRow.size();
+                            y = thridRow.size();
+                        }
+                    }   
+                }
+            }
+        }
+    }
     return solutionPart2;
 }
