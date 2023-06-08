@@ -32,15 +32,24 @@ int solution1()
             charArray[i] = line[i];
         }
 
+        unordered_set <char> seenChars;
+
         for (int i = 3; i < stringLength; i++) 
         {
-            if (charArray[i] != charArray[i - 1] && charArray[i] != charArray[i - 2] && charArray[i] != charArray[i - 3] &&
-                charArray[i - 1] != charArray[i - 2] && charArray[i - 1] != charArray[i - 3] && charArray[i - 2] != charArray[i - 3])
+            seenChars.clear();
+            for (int j = i - 3; j <= i; j++) {
+                if (seenChars.find(charArray[j]) != seenChars.end()) 
+                {
+                    break;
+                }
+                seenChars.insert(charArray[j]);
+            }
+            if (seenChars.size() == 4) 
             {
                 return i + 1;
             }
         }
-        
+
         return -1;
     }
 
