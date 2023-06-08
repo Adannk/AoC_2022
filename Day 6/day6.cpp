@@ -65,9 +65,6 @@ int solution2()
             charArray[i] = line[i];
         }
 
-        if (stringLength < 14)
-            return -1;
-
         unordered_set <char> seenChars;
 
         for (int i = 13; i < stringLength; i++) 
